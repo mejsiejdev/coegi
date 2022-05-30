@@ -1,8 +1,6 @@
 # Coegi
 
-This is the repository of **Coegi**'s website.
-
-The site was created using:
+This site was created using:
 
 - [Next.js](https://nextjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/) for styling
