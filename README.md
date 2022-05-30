@@ -81,13 +81,19 @@ Go to the **Settings** menu at the top and click **API tokens**.
 
 Then click **Read-only API token** and copy the token.
 
-Next, copy the `.env.local.example` file in this directory to `.env.local`:
+Next, copy the `.env.example` file in this directory to `.env`:
 
 ```bash
-cp .env.local.example .env.local
+cp .env.example .env
 ```
 
-`NEXT_DATOCMS_API_TOKEN` inside it  should be the API token you just copied.
+<<<<<<< HEAD
+`NEXT_DATOCMS_API_TOKEN` inside it should be the API token you just copied.
+=======
+Then set each variable on `.env`:
+
+- `NEXT_DATOCMS_API_TOKEN` should be the API token you just copied.
+>>>>>>> parent of 1919b2b (docs: :memo: Updated documention.)
 
 Your `.env.local` file should look like this:
 
