@@ -2,7 +2,6 @@ import styles from './LinksSection.module.css'
 
 import {
   SiInstagram,
-  SiFacebook,
   SiTwitter,
   SiSoundcloud,
   SiSpotify,
@@ -10,6 +9,8 @@ import {
   SiTidal,
   SiApple,
 } from 'react-icons/si'
+
+import { FaFacebookF } from 'react-icons/fa'
 
 import { MdDownload, MdRadio, MdHeadphones } from 'react-icons/md'
 
@@ -39,7 +40,7 @@ const LinksSection: React.FC<Props> = (props) => {
           rel="noopener noreferrer"
           className="flex items-center justify-center"
         >
-          <SiInstagram className={styles.link} />
+          <SiInstagram className={styles.instagram} />
         </a>
       )}
       {props.facebook && (
@@ -50,7 +51,7 @@ const LinksSection: React.FC<Props> = (props) => {
           rel="noopener noreferrer"
           className="flex items-center justify-center"
         >
-          <SiFacebook className={styles.link} />
+          <FaFacebookF className={styles.facebook} />
         </a>
       )}
       {props.twitter && (
@@ -61,7 +62,7 @@ const LinksSection: React.FC<Props> = (props) => {
           rel="noopener noreferrer"
           className="flex items-center justify-center"
         >
-          <SiTwitter className={styles.link} />
+          <SiTwitter className={styles.twitter} />
         </a>
       )}
       {props.spotify && (
@@ -72,7 +73,7 @@ const LinksSection: React.FC<Props> = (props) => {
           rel="noopener noreferrer"
           className="flex items-center justify-center"
         >
-          <SiSpotify className={styles.link} />
+          <SiSpotify className={styles.spotify} />
         </a>
       )}
       {props.soundcloud && (
@@ -83,7 +84,7 @@ const LinksSection: React.FC<Props> = (props) => {
           rel="noopener noreferrer"
           className="flex items-center justify-center"
         >
-          <SiSoundcloud className={styles.link} />
+          <SiSoundcloud className={styles.soundcloud} />
         </a>
       )}
       {props.youtube && (
@@ -94,7 +95,7 @@ const LinksSection: React.FC<Props> = (props) => {
           rel="noopener noreferrer"
           className="flex items-center justify-center"
         >
-          <SiYoutube className={styles.link} />
+          <SiYoutube className={styles.youtube} />
         </a>
       )}
       {props.tidal && (
@@ -105,7 +106,7 @@ const LinksSection: React.FC<Props> = (props) => {
           rel="noopener noreferrer"
           className="flex items-center justify-center"
         >
-          <SiTidal className={styles.link} />
+          <SiTidal className={styles.tidal} />
         </a>
       )}
       {props.apple && (
@@ -116,7 +117,7 @@ const LinksSection: React.FC<Props> = (props) => {
           rel="noopener noreferrer"
           className="flex items-center justify-center"
         >
-          <SiApple className={styles.link} />
+          <SiApple className={styles.apple} />
         </a>
       )}
       {props.download &&
