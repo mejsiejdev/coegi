@@ -36,7 +36,10 @@ const ArtistSection: React.FC<Props> = ({
           <span className="mr-2 inline-block origin-bottom-right animate-wave select-none">
             👋
           </span>
-          Hi, I&apos;m <span className="font-bold">{name}!</span>
+          Hi, I&apos;m{' '}
+          <span className="bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text font-bold text-transparent">
+            {name}!
+          </span>
         </h1>
         <div className="prose prose-sm prose-invert overflow-y-auto">
           <ReactMarkdown>{description}</ReactMarkdown>
