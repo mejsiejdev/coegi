@@ -36,7 +36,7 @@ export const getStaticProps: GetStaticProps = async () => {
       title
       author
       cover {
-        responsiveImage(imgixParams: {fit: crop, w: 300, h: 300, auto: format}) {
+        responsiveImage(imgixParams: {fit: crop, w: 200, h: 200, auto: format}) {
           srcSet
           webpSrcSet
           sizes
