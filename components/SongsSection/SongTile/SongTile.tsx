@@ -12,7 +12,6 @@ const variants = {
 
 const SongTile: React.FC<Song> = ({ slug, title, author, cover }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false)
-  console.log(isVisible, title)
   return (
     <ReactVisibilitySensor partialVisibility onChange={(isVisible) => setIsVisible(isVisible)}>
       <Link passHref href={`/songs/${slug}`}>
