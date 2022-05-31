@@ -27,12 +27,11 @@ const SongTile: React.FC<Song> = ({ slug, title, author, cover }) => {
           }
         >
           {isVisible && (
-            <div className="grid w-full justify-center">
-              <Image
-                data={cover.responsiveImage}
-                className="flex-none rounded-t-lg object-fill"
-              />
-            </div>
+            <Image
+              data={cover.responsiveImage}
+              layout="responsive"
+              className="flex-none rounded-t-lg object-contain"
+            />
           )}
           <div className="truncate p-3">
             <p className="truncate text-sm font-bold text-white">{title}</p>
