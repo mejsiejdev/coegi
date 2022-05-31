@@ -13,7 +13,10 @@ const variants = {
 const SongTile: React.FC<Song> = ({ slug, title, author, cover }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false)
   return (
-    <ReactVisibilitySensor partialVisibility onChange={(isVisible) => setIsVisible(isVisible)}>
+    <ReactVisibilitySensor
+      partialVisibility
+      onChange={(isVisible) => setIsVisible(isVisible)}
+    >
       <Link passHref href={`/songs/${slug}`}>
         <motion.a
           initial={{ opacity: 0 }}
@@ -23,12 +26,14 @@ const SongTile: React.FC<Song> = ({ slug, title, author, cover }) => {
             'h-full w-full truncate rounded-lg bg-gray-800 transition hover:bg-gray-700'
           }
         >
-          <div className="grid w-full justify-center">
-            <Image
-              data={cover.responsiveImage}
-              className="flex-none rounded-t-lg object-fill"
-            />
-          </div>
+          {isVisible && (
+            <div className="grid w-full justify-center">
+              <Image
+                data={cover.responsiveImage}
+                className="flex-none rounded-t-lg object-fill"
+              />
+            </div>
+          )}
           <div className="truncate p-3">
             <p className="truncate text-sm font-bold text-white">{title}</p>
             <p className="truncate text-xs text-gray-300">{author}</p>
