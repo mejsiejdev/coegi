@@ -26,13 +26,11 @@ const SongTile: React.FC<Song> = ({ slug, title, author, cover }) => {
             'h-full w-full truncate rounded-lg bg-gray-800 transition hover:bg-gray-700'
           }
         >
-          {isVisible && (
-            <Image
-              data={cover.responsiveImage}
-              layout="responsive"
-              className="flex-none rounded-t-lg object-contain"
-            />
-          )}
+          <Image
+            data={cover.responsiveImage}
+            layout="responsive"
+            className="flex-none rounded-t-lg object-contain"
+          />
           <div className="truncate p-3">
             <p className="truncate text-sm font-bold text-white">{title}</p>
             <p className="truncate text-xs text-gray-300">{author}</p>
