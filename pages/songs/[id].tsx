@@ -1,17 +1,11 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 
 import { request } from '../../lib/datocms'
 import { renderMetaTags, Image, TitleMetaLinkTag } from 'react-datocms'
 
-import { motion } from 'framer-motion'
-
 import ReactMarkdown from 'react-markdown'
-
 import LinksSection from '../../components/LinksSection'
-
-import { MdArrowBackIosNew } from 'react-icons/md'
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const query = `query Paths {
@@ -45,7 +39,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       author
       description
       cover {
-        responsiveImage(imgixParams: {fit: crop, w: 350, h: 350, auto: format}) {
+        responsiveImage(imgixParams: {fit: crop, w: 500, h: 500, auto: format}) {
           srcSet
           webpSrcSet
           sizes
@@ -121,50 +115,38 @@ type Props = {
 }
 
 const Song: NextPage<Props> = ({ song, site }) => {
-  const router = useRouter()
+  const title = song.title.includes('(Coegi Remix)')
+    ? `${song.title.split('(Coegi Remix)')[0]}
+      \n(Coegi Remix)`
+    : song.title
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-gray-900 p-6 ">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-neutral-100 p-4 pb-8">
       <Head>
         {
           // @ts-ignore
           renderMetaTags([...song.seo, ...site.favicon])
         }
       </Head>
-      <div className="container flex flex-row flex-wrap items-start justify-center gap-6">
-        <Image data={song.cover.responsiveImage} className="rounded-xl" />
-        <motion.div
-          initial={{ opacity: 0, y: -100 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="flex max-w-sm flex-col gap-2 rounded-lg bg-gray-800 p-6"
+      <div className="container flex flex-row flex-wrap items-start justify-center gap-y-4 gap-x-8">
+        <Image data={song.cover.responsiveImage} className="rounded-md" />
+        <div
+          className="flex max-w-md flex-col gap-2"
         >
-          <div className="flex flex-col items-start gap-4">
-            <div className="flex flex-col gap-4">
-              <div className="flex flex-col gap-2">
-                <div
-                  className="group flex cursor-pointer flex-row items-center justify-start gap-2"
-                  onClick={() => router.back()}
-                >
-                  <MdArrowBackIosNew className="fill-gray-300 transition group-hover:fill-white" />
-                  <p className="text-sm text-gray-300 transition group-hover:text-white">
-                    Return to the main page
-                  </p>
-                </div>
-                <div>
-                  <h1 className="text-2xl font-bold text-white">
-                    {song.title}
-                  </h1>
-                  <h2 className="text-gray-300">{song.author}</h2>
-                </div>
-              </div>
-              {song.links && <LinksSection {...song.links} />}
-              {song.description && (
-                <div className="prose prose-invert">
-                  <ReactMarkdown>{song.description}</ReactMarkdown>
-                </div>
-              )}
+          <div className="flex flex-col justify-center gap-4 text-center sm:text-left">
+            <div className="flex flex-col gap-2 text-neutral-900">
+              <h1 className="text-4xl font-bold italic">
+                <ReactMarkdown>{title.toUpperCase()}</ReactMarkdown>
+              </h1>
+              <h2 className="text-sm">{song.author}</h2>
             </div>
+            {song.links && <LinksSection {...song.links} />}
+            {song.description && (
+              <div className="prose prose-neutral">
+                <ReactMarkdown>{song.description}</ReactMarkdown>
+              </div>
+            )}
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   )
