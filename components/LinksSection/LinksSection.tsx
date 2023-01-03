@@ -38,8 +38,8 @@ const LinksSection: React.FC<Props> = (props) => {
           rel="noopener noreferrer"
           className="flex w-full flex-row items-center justify-center gap-4 rounded-md bg-gradient-to-r from-[#FF7A00] to-[#D300C5] fill-white p-2 text-white"
         >
-          <SiInstagram className="h-6 w-6"/>
-          <p className="font-bold">Follow on Instagram</p>
+          <SiInstagram className="h-5 w-5"/>
+          <p className="font-bold text-sm">Follow on Instagram</p>
         </a>
       )}
       {props.facebook && (
@@ -50,8 +50,8 @@ const LinksSection: React.FC<Props> = (props) => {
           rel="noopener noreferrer"
           className="flex w-full flex-row items-center justify-center gap-4 rounded-md bg-blue-600 fill-white p-2 text-white"
         >
-          <FaFacebookF className="h-6 w-6"/>
-          <p className="font-bold">Like on Facebook</p>
+          <FaFacebookF className="h-5 w-5"/>
+          <p className="font-bold text-sm">Like on Facebook</p>
         </a>
       )}
       {props.twitter && (
@@ -62,8 +62,8 @@ const LinksSection: React.FC<Props> = (props) => {
           rel="noopener noreferrer"
           className="flex w-full flex-row items-center justify-center gap-4 rounded-md bg-sky-500 fill-white p-2 text-white"
         >
-          <SiTwitter className="h-7 w-7"/>
-          <p className="font-bold">Follow on Twitter</p>
+          <SiTwitter className="h-6 w-6"/>
+          <p className="font-bold text-sm">Follow on Twitter</p>
         </a>
       )}
       {props.spotify && (
@@ -74,8 +74,8 @@ const LinksSection: React.FC<Props> = (props) => {
           rel="noopener noreferrer"
           className="flex w-full flex-row items-center justify-center gap-4 rounded-md bg-green-500 fill-white p-2 text-white"
         >
-          <SiSpotify className="h-7 w-7" />
-          <p className="font-bold">Listen on Spotify</p>
+          <SiSpotify className="h-6 w-6" />
+          <p className="font-bold text-sm">Listen on Spotify</p>
         </a>
       )}
       {props.soundcloud && (
@@ -86,8 +86,8 @@ const LinksSection: React.FC<Props> = (props) => {
           rel="noopener noreferrer"
           className="flex w-full flex-row items-center justify-center gap-4 rounded-md bg-orange-500 fill-white p-2 text-white"
         >
-          <SiSoundcloud className="h-8 w-8" />
-          <p className="font-bold">Listen on Soundcloud</p>
+          <SiSoundcloud className="h-7 w-7" />
+          <p className="font-bold text-sm">Listen on Soundcloud</p>
         </a>
       )}
       {props.youtube && (
@@ -98,8 +98,8 @@ const LinksSection: React.FC<Props> = (props) => {
           rel="noopener noreferrer"
           className="flex w-full flex-row items-center justify-center gap-4 rounded-md bg-red-500 fill-white p-2 text-white"
         >
-          <SiYoutube className="h-7 w-7" />
-          <p className="font-bold">Listen on Youtube</p>
+          <SiYoutube className="h-6 w-6" />
+          <p className="font-bold text-sm">Listen on Youtube</p>
         </a>
       )}
       {props.tidal && (
@@ -110,8 +110,8 @@ const LinksSection: React.FC<Props> = (props) => {
           rel="noopener noreferrer"
           className="flex w-full flex-row items-center justify-center gap-4 rounded-md bg-neutral-900 fill-white p-2 text-white"
         >
-          <SiTidal className="h-7 w-7" />
-          <p className="font-bold">Listen on Tidal</p>
+          <SiTidal className="h-6 w-6" />
+          <p className="font-bold text-sm">Listen on Tidal</p>
         </a>
       )}
       {props.apple && (
@@ -122,8 +122,8 @@ const LinksSection: React.FC<Props> = (props) => {
           rel="noopener noreferrer"
           className="flex w-full flex-row items-center justify-center gap-4 rounded-md bg-neutral-300 fill-neutral-900 p-2 text-neutral-900"
         >
-          <SiApple className="h-6 w-6" />
-          <p className="font-bold">Listen on Apple Music</p>
+          <SiApple className="h-5 w-5" />
+          <p className="font-bold text-sm">Listen on Apple Music</p>
         </a>
       )}
       {props.download &&
@@ -135,8 +135,8 @@ const LinksSection: React.FC<Props> = (props) => {
             rel="noopener noreferrer"
             className="flex w-full flex-row items-center justify-center gap-4 rounded-md bg-neutral-700 fill-white p-2 text-white"
           >
-            <MdDownload className="h-7 w-7" />
-            <p className="font-bold">Download</p>
+            <MdDownload className="h-6 w-6" />
+            <p className="font-bold text-sm">Download</p>
           </a>
         ) : (
           <>
@@ -147,8 +147,8 @@ const LinksSection: React.FC<Props> = (props) => {
               rel="noopener noreferrer"
               className="flex w-full flex-row items-center justify-center gap-4 rounded-md bg-yellow-600 fill-white p-2 text-white"
             >
-              <MdRadio className="h-7 w-7"/>
-              <p className="font-bold">Download the Radio Edit</p>
+              <MdRadio className="h-6 w-6"/>
+              <p className="font-bold text-sm">Download the Radio Edit</p>
             </a>
             <a
               aria-label="Extended Edit Download"
@@ -157,8 +157,8 @@ const LinksSection: React.FC<Props> = (props) => {
               rel="noopener noreferrer"
               className="flex w-full flex-row items-center justify-center gap-4 rounded-md bg-violet-700 fill-white p-2 text-white"
             >
-              <MdHeadphones className="h-7 w-7"/>
-              <p className="font-bold">Download the Extended Mix</p>
+              <MdHeadphones className="h-6 w-6"/>
+              <p className="font-bold text-sm">Download the Extended Mix</p>
             </a>
           </>
         ))}
