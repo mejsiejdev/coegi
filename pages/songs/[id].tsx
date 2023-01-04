@@ -137,7 +137,7 @@ const Song: NextPage<Props> = ({ song, site }) => {
               className="rounded-t-md sm:rounded-l-md"
               layout="intrinsic"
             />
-            <div className="z-20 sm:h-[500px] p-4 sm:p-0 sm:pr-4 sm:py-4 h-full flex sm:max-w-[500px] flex-col gap-4 rounded-b-md text-center text-white sm:overflow-y-scroll sm:rounded-bl-none sm:text-left sm:rounded-r-md">
+            <div className="z-20 sm:h-[500px] p-4 sm:p-0 sm:pr-4 sm:py-4 h-full flex sm:max-w-[500px] flex-col gap-4 rounded-b-md text-center text-white sm:overflow-y-auto sm:rounded-bl-none sm:text-left sm:rounded-r-md">
               <div className="flex flex-col gap-2">
                 <h1 className="text-4xl font-bold italic">
                   <ReactMarkdown>{song.title.toUpperCase()}</ReactMarkdown>
