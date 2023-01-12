@@ -2,7 +2,6 @@ import {
   SiInstagram,
   SiTwitter,
   SiSoundcloud,
-  SiSpotify,
   SiYoutube,
   SiTidal,
   SiApple,
@@ -11,6 +10,7 @@ import {
 import { FaFacebookF } from 'react-icons/fa'
 
 import { MdDownload, MdRadio, MdHeadphones } from 'react-icons/md'
+import Spotify from './Spotify/Spotify'
 
 type Props = {
   instagram?: string
@@ -67,16 +67,7 @@ const LinksSection: React.FC<Props> = (props) => {
         </a>
       )}
       {props.spotify && (
-        <a
-          aria-label="Spotify"
-          href={props.spotify}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex w-full flex-row items-center justify-center gap-4 rounded-md bg-green-500 fill-white p-2 text-white"
-        >
-          <SiSpotify className="h-7 w-7" />
-          <p className="font-bold">Listen on Spotify</p>
-        </a>
+        <Spotify href={props.spotify} />
       )}
       {props.soundcloud && (
         <a
