@@ -4,23 +4,28 @@ import { MdExpandLess, MdExpandMore } from 'react-icons/md'
 import { SiSpotify } from 'react-icons/si'
 
 const Spotify = ({ href }: { href: string }) => {
-  const [showEmbed, setShowEmbed] = useState(true)
+  const [showEmbed, setShowEmbed] = useState(false)
+  const expand = href.includes('/track')
   return (
     <motion.div className="flex flex-col rounded-md bg-green-500">
       <div className="flex items-center justify-end fill-white p-2 text-white">
-        <div className="absolute">
-          {showEmbed ? (
-            <MdExpandLess
-              className="my-auto h-7 w-7 rounded-md p-0.5 hover:bg-white/25"
-              onClick={() => setShowEmbed(false)}
-            />
-          ) : (
-            <MdExpandMore
-              className="my-auto h-7 w-7 rounded-md p-0.5 hover:bg-white/25"
-              onClick={() => setShowEmbed(true)}
-            />
-          )}
-        </div>
+        {expand && (
+          <div className="absolute">
+            {showEmbed ? (
+              <MdExpandLess
+                title="Hide the preview"
+                className="my-auto h-7 w-7 cursor-pointer rounded-md p-0.5 hover:bg-white/25"
+                onClick={() => setShowEmbed(false)}
+              />
+            ) : (
+              <MdExpandMore
+                title="Click to preview"
+                className="my-auto h-7 w-7 cursor-pointer rounded-md p-0.5 hover:bg-white/25"
+                onClick={() => setShowEmbed(true)}
+              />
+            )}
+          </div>
+        )}
         <a
           aria-label="Listen on Spotify"
           href={href}
@@ -33,19 +38,28 @@ const Spotify = ({ href }: { href: string }) => {
         </a>
       </div>
       <AnimatePresence>
-        {showEmbed && (
+        {showEmbed && expand && (
           <motion.div
             initial={{ height: 0 }}
-            animate={{ height: "auto" }}
+            animate={{ height: 'auto' }}
+            exit={{ height: 0 }}
+            transition={{ duration: 0.3 }}
             className="h-full w-full border-t border-green-600 p-2"
           >
-            <iframe
+            <motion.iframe
+              initial={{ height: 0 }}
+              animate={{ height: 152 }}
+              exit={{ height: 0 }}
+              transition={{ duration: 0.25 }}
               title="Spotify preview"
+              scrolling="no"
               className="w-full rounded-sm"
-              height={152}
-              src={`https://open.spotify.com/embed/track/0ctbsFXYRaFL9zQ2WnTKUY?utm_source=generator}`}
+              height="152"
+              src={`https://open.spotify.com/embed/track/${
+                href.split('/track/')[1].split('?')[0]
+              }?utm_source=generator}`}
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            ></iframe>
+            ></motion.iframe>
           </motion.div>
         )}
       </AnimatePresence>
