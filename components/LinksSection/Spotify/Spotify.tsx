@@ -50,7 +50,7 @@ const Spotify = ({ href }: { href: string }) => {
               transition={{ duration: 0.25 }}
               title="Spotify preview"
               scrolling="no"
-              className="w-full rounded-sm"
+              className="w-full"
               height="152"
               src={`https://open.spotify.com/embed/track/${
                 href.split('/track/')[1].split('?')[0]
