@@ -115,36 +115,42 @@ type Props = {
 }
 
 const Song: NextPage<Props> = ({ song, site }) => {
-  const title = song.title.includes('(Coegi Remix)')
-    ? `${song.title.split('(Coegi Remix)')[0]}
-      \n(Coegi Remix)`
-    : song.title
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-neutral-100 p-4 pb-8">
+    <div className="min-h-screen bg-transparent">
       <Head>
         {
           // @ts-ignore
           renderMetaTags([...song.seo, ...site.favicon])
         }
       </Head>
-      <div className="container flex flex-row flex-wrap items-start justify-center gap-y-4 gap-x-8">
-        <Image data={song.cover.responsiveImage} className="rounded-md" />
-        <div
-          className="flex max-w-md flex-col gap-2"
-        >
-          <div className="flex flex-col justify-center gap-4 text-center sm:text-left">
-            <div className="flex flex-col gap-2 text-neutral-900">
-              <h1 className="text-4xl font-bold italic">
-                <ReactMarkdown>{title.toUpperCase()}</ReactMarkdown>
-              </h1>
-              <h2 className="text-sm">{song.author}</h2>
-            </div>
-            {song.links && <LinksSection {...song.links} />}
-            {song.description && (
-              <div className="prose prose-neutral">
-                <ReactMarkdown>{song.description}</ReactMarkdown>
+      <div className="relative">
+        <Image
+          data={song.cover.responsiveImage}
+          layout="fill"
+          objectFit="cover"
+          className="absolute min-h-screen w-full brightness-50"
+        />
+        <div className="flex min-h-screen flex-col items-center justify-center p-4 backdrop-blur-md">
+          <div className="z-20 flex flex-col items-start justify-center gap-4 rounded-md bg-neutral-800 shadow-2xl sm:flex-row">
+            <Image
+              data={song.cover.responsiveImage}
+              className="rounded-t-md sm:rounded-l-md"
+              layout="intrinsic"
+            />
+            <div className="z-20 sm:h-[500px] p-4 sm:p-0 sm:pr-4 sm:py-4 h-full flex sm:max-w-[500px] flex-col gap-4 rounded-b-md text-center text-white sm:overflow-y-auto sm:rounded-bl-none sm:text-left sm:rounded-r-md">
+              <div className="flex flex-col gap-2">
+                <h1 className="text-4xl font-bold italic">
+                  <ReactMarkdown>{song.title.toUpperCase()}</ReactMarkdown>
+                </h1>
+                <h2 className="text-sm">{song.author}</h2>
               </div>
-            )}
+              {song.links && <LinksSection {...song.links} />}
+              {song.description && (
+                <div className="prose-sm">
+                  <ReactMarkdown>{song.description}</ReactMarkdown>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
