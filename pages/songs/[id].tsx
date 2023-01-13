@@ -6,6 +6,7 @@ import { renderMetaTags, Image, TitleMetaLinkTag } from 'react-datocms'
 
 import ReactMarkdown from 'react-markdown'
 import LinksSection from '../../components/LinksSection'
+import { motion } from 'framer-motion'
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const query = `query Paths {
@@ -131,13 +132,17 @@ const Song: NextPage<Props> = ({ song, site }) => {
           className="absolute min-h-screen w-full brightness-50"
         />
         <div className="flex min-h-screen flex-col items-center justify-center p-4 backdrop-blur-md">
-          <div className="z-20 flex flex-col items-start justify-center gap-4 rounded-md bg-neutral-800 shadow-2xl sm:flex-row">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="z-20 flex flex-col items-start justify-center gap-4 rounded-md bg-neutral-800 shadow-2xl sm:flex-row"
+          >
             <Image
               data={song.cover.responsiveImage}
-              className="rounded-t-md sm:rounded-l-md"
+              className="rounded-t-md sm:rounded-l-md sm:rounded-r-none"
               layout="intrinsic"
             />
-            <div className="z-20 sm:h-[500px] p-4 sm:p-0 sm:pr-4 sm:py-4 h-full flex sm:max-w-[500px] flex-col gap-4 rounded-b-md text-center text-white sm:overflow-y-auto sm:rounded-bl-none sm:text-left sm:rounded-r-md">
+            <div className="z-20 flex h-full flex-col gap-4 rounded-b-md p-4 text-center text-white sm:max-h-[500px] sm:max-w-[500px] sm:overflow-y-auto sm:rounded-r-md sm:rounded-bl-none sm:p-0 sm:py-4 sm:pr-4 sm:text-left">
               <div className="flex flex-col gap-2">
                 <h1 className="text-4xl font-bold italic">
                   <ReactMarkdown>{song.title.toUpperCase()}</ReactMarkdown>
@@ -151,7 +156,7 @@ const Song: NextPage<Props> = ({ song, site }) => {
                 </div>
               )}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
