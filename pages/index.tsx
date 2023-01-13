@@ -73,14 +73,7 @@ type Props = {
     picture: {
       responsiveImage: responsiveImage
     }
-    socials: {
-      instagram?: string
-      facebook?: string
-      twitter?: string
-      soundcloud?: string
-      spotify?: string
-      youtube?: string
-    }
+    socials: any
   }
   songs: SongType[]
   site: {
@@ -90,7 +83,7 @@ type Props = {
 
 const Home: NextPage<Props> = ({ artist, songs, site }) => {
   return (
-    <div className="flex min-h-screen w-full flex-row flex-wrap items-start justify-center gap-x-8 bg-gray-900 px-6">
+    <div className="flex min-h-screen w-full flex-row flex-wrap items-start justify-center gap-4 bg-gradient-to-b from-neutral-900 to-black p-4">
       <Head>
         {
           //@ts-ignore

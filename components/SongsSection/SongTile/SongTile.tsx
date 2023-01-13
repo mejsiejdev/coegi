@@ -1,43 +1,25 @@
-import { motion } from 'framer-motion'
 import { Image } from 'react-datocms'
 import Link from 'next/link'
-import ReactVisibilitySensor from 'react-visibility-sensor'
 import type Song from '../../../types/song'
-import { useState } from 'react'
-
-const variants = {
-  visible: { opacity: 1 },
-  hidden: { opacity: 0 },
-}
 
 const SongTile: React.FC<Song> = ({ slug, title, author, cover }) => {
-  const [isVisible, setIsVisible] = useState<boolean>(false)
   return (
-    <ReactVisibilitySensor
-      partialVisibility
-      onChange={(isVisible) => setIsVisible(isVisible)}
+    <Link
+      href={`/songs/${slug}`}
+      className="group h-full w-full truncate rounded-lg transition"
     >
-      <Link passHref href={`/songs/${slug}`}>
-        <motion.a
-          initial={{ opacity: 0 }}
-          animate={isVisible ? 'visible' : 'hidden'}
-          variants={variants}
-          className={
-            'h-full w-full truncate rounded-lg bg-gray-800 transition hover:bg-gray-700'
-          }
-        >
-          <Image
-            data={cover.responsiveImage}
-            layout="responsive"
-            className="flex-none rounded-t-lg object-contain"
-          />
-          <div className="truncate p-3">
-            <p className="truncate text-sm font-bold text-white">{title}</p>
-            <p className="truncate text-xs text-gray-300">{author}</p>
-          </div>
-        </motion.a>
-      </Link>
-    </ReactVisibilitySensor>
+      <Image
+        data={cover.responsiveImage}
+        layout="responsive"
+        className="flex-none rounded-t-lg object-contain"
+      />
+      <div className="h-full truncate text-center w-full rounded-b-md bg-neutral-800 p-4 transition group-hover:bg-neutral-700">
+        <p className="truncate text-sm font-bold italic text-white">
+          {title.toUpperCase()}
+        </p>
+        <p className="truncate text-xs text-gray-300">{author}</p>
+      </div>
+    </Link>
   )
 }
 export default SongTile

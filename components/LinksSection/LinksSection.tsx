@@ -4,7 +4,7 @@ import {
   SiSoundcloud,
   SiYoutube,
   SiTidal,
-  SiApple,
+  SiApplemusic,
 } from 'react-icons/si'
 
 import { FaFacebookF } from 'react-icons/fa'
@@ -111,7 +111,7 @@ const LinksSection: React.FC<Props> = (props) => {
           rel="noopener noreferrer"
           className="flex w-full flex-row items-center justify-center gap-4 rounded-md bg-neutral-300 fill-neutral-900 p-2 text-neutral-900"
         >
-          <SiApple className="h-6 w-6" />
+          <SiApplemusic className="h-6 w-6" />
           <p className="text-sm font-bold">Listen on Apple Music</p>
         </a>
       )}
