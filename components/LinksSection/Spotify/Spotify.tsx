@@ -8,7 +8,7 @@ const Spotify = ({ href }: { href: string }) => {
   const expand = href.includes('/track')
   return (
     <motion.div className="flex flex-col rounded-md bg-green-500">
-      <div className="flex items-center justify-end fill-white p-2 text-white">
+      <div className="relative flex items-center justify-end fill-white p-2 text-white">
         {expand && (
           <div className="absolute">
             {showEmbed ? (
