@@ -135,7 +135,7 @@ const Song: NextPage<Props> = ({ song, site }) => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="z-20 flex flex-col items-start justify-center gap-4 rounded-md bg-neutral-800 shadow-2xl sm:flex-row"
+            className="z-20 flex flex-col items-start justify-center gap-4 gap-y-0 rounded-md bg-neutral-800 shadow-2xl sm:flex-row"
           >
             <Image
               data={song.cover.responsiveImage}
