@@ -3,25 +3,12 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Space Mono';
-  src: url('../public/fonts/SpaceMono-Regular.ttf');
+  font-family: 'Hanken Grotesk';
+  src: url('../public/fonts/HankenGrotesk-VariableFont_wght.ttf');
 }
 
 @font-face {
-  font-family: 'Space Mono';
-  src: url('../public/fonts/SpaceMono-Italic.ttf');
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Space Mono';
-  src: url('../public/fonts/SpaceMono-Bold.ttf');
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: 'Space Mono';
-  src: url('../public/fonts/SpaceMono-BoldItalic.ttf');
-  font-weight: 700;
+  font-family: 'Hanken Grotesk';
+  src: url('../public/fonts/HankenGrotesk-Italic-VariableFont_wght.ttf');
   font-style: italic;
 }
