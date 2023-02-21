@@ -31,7 +31,7 @@ const Menu = ({ onClose }: { onClose: () => void }) => (
       animate={{ x: 0 }}
       exit={{ x: -300 }}
       transition={{ type: 'tween' }}
-      className="flex h-full min-h-screen flex-col justify-between gap-8 bg-neutral-800 py-4 pr-4"
+      className="flex h-full max-h-screen flex-col justify-between gap-8 bg-neutral-800 py-4 pr-4"
     >
       <div className="flex flex-col gap-4">
         <button

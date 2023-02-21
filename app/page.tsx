@@ -52,7 +52,7 @@ const Page = async () => {
       </div>
       <Link
         href={`/songs/${newestSong.slug}`}
-        className="flex w-full flex-col items-center justify-center rounded-md bg-white px-4 py-1 text-lg font-semibold text-neutral-800"
+        className="flex w-full flex-col items-center justify-center rounded-md bg-white px-4 py-2 text-lg font-semibold text-neutral-800"
       >
         Listen now
       </Link>
