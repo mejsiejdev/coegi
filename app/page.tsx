@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import ReactMarkdown from 'react-markdown'
 import GenreTag from '../components/GenreTag'
 import { request } from '../lib/datocms'
 
@@ -8,6 +9,7 @@ const getNewestSong = async () => {
     song(orderBy: [uploadedAt_DESC]) {
       slug
       title
+      description
       genre {
         name
       }
@@ -39,23 +41,40 @@ const Page = async () => {
   return (
     <div className="flex w-full flex-col gap-4 p-4">
       <p>Latest release</p>
-      <Image
-        src={newestSong.cover.responsiveImage.src}
-        width={newestSong.cover.responsiveImage.width}
-        height={newestSong.cover.responsiveImage.height}
-        alt={newestSong.cover.responsiveImage.alt}
-        className="rounded-md"
-      />
-      <div className="flex w-full flex-row justify-between gap-4">
-        <p className="text-5xl">{newestSong.title}</p>
-        <GenreTag genre={newestSong.genre.name} />
+      <div className="flex flex-col gap-4 lg:flex-row">
+        <Image
+          src={newestSong.cover.responsiveImage.src}
+          width={newestSong.cover.responsiveImage.width}
+          height={newestSong.cover.responsiveImage.height}
+          alt={newestSong.cover.responsiveImage.alt}
+          className="rounded-md"
+        />
+        <div className="flex w-full flex-col justify-between gap-4">
+          <div className="flex flex-col gap-4">
+            <div className="flex w-full flex-row justify-between gap-4">
+              <p className="text-5xl">{newestSong.title}</p>
+              <GenreTag genre={newestSong.genre.name} />
+            </div>
+            <ReactMarkdown className="hidden flex-col gap-4 sm:flex">
+              {newestSong.description}
+            </ReactMarkdown>
+          </div>
+          <div className="flex flex-col gap-4">
+            <Link
+              href={`/songs/${newestSong.slug}`}
+              className="flex w-full flex-col items-center justify-center rounded-md bg-white px-4 py-2 text-lg font-semibold text-neutral-800"
+            >
+              Listen now
+            </Link>
+            <Link
+              href={`/songs/${newestSong.slug}`}
+              className="flex w-full flex-row items-center justify-center rounded-md border-2 border-white px-4 py-2 text-lg font-semibold"
+            >
+              See all songs
+            </Link>
+          </div>
+        </div>
       </div>
-      <Link
-        href={`/songs/${newestSong.slug}`}
-        className="flex w-full flex-col items-center justify-center rounded-md bg-white px-4 py-2 text-lg font-semibold text-neutral-800"
-      >
-        Listen now
-      </Link>
     </div>
   )
 }

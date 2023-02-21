@@ -7,9 +7,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       lang="en"
       className="flex h-full flex-col items-center bg-neutral-800 text-white antialiased"
     >
-      <body className="container flex h-full w-full flex-col items-center">
+      <body className="flex h-full w-full flex-col items-center">
         <Header />
-        {children}
+        <div className="container">{children}</div>
       </body>
     </html>
   )
