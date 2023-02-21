@@ -43,6 +43,7 @@ const Page = async () => {
         src={newestSong.cover.responsiveImage.src}
         width={newestSong.cover.responsiveImage.width}
         height={newestSong.cover.responsiveImage.height}
+        alt={newestSong.cover.responsiveImage.alt}
         className="rounded-md"
       />
       <div className="flex w-full flex-row justify-between gap-4">
