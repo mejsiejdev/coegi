@@ -12,3 +12,20 @@
   src: url('../public/fonts/HankenGrotesk-Italic-VariableFont_wght.ttf');
   font-style: italic;
 }
+
+@font-face {
+  font-family: 'Material Icons';
+  src: url('../public/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].woff2');
+}
+
+.font-icons {
+  font-weight: 300;
+  font-style: normal;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  font-variation-settings: 'FILL' 1;
+}
