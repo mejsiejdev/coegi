@@ -32,7 +32,7 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
       lang="en"
       className="flex h-full flex-col items-center bg-neutral-800 text-white antialiased"
     >
-      <body className="sm:jsutify-start flex h-full w-full flex-col-reverse items-center justify-between sm:flex-col">
+      <body className="sm:jsutify-start flex h-full w-full flex-col-reverse items-center justify-between sm:flex-col sm:justify-start">
         <Header links={links} />
         <div className="container">{children}</div>
       </body>

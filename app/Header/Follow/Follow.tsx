@@ -25,6 +25,7 @@ const PlatformLink = ({
     title={title}
     target="_blank"
     referrerPolicy="no-referrer"
+    rel="noreferrer"
     className="flex w-full flex-row items-center gap-4 rounded-md border-2 border-neutral-700 px-4 py-2 transition hover:border-neutral-500"
   >
     <Image src={src} alt={name} className="w-8" />
@@ -39,17 +40,17 @@ const Follow = ({ links, onClose }: { links: any; onClose: () => void }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ type: 'tween', duration: 0.3 }}
-      className="fixed inset-0 flex h-full min-h-screen w-full flex-col items-center justify-end bg-black/50"
+      className="fixed inset-0 flex h-screen w-full items-end bg-black/50"
     >
       <motion.div
         initial={{ y: 400 }}
         animate={{ y: 0 }}
         exit={{ y: 400 }}
         transition={{ type: 'tween', duration: 0.3 }}
-        className="flex w-full flex-col gap-4 rounded-t-md bg-neutral-800 p-4"
+        className="flex h-min w-full flex-col gap-4 rounded-t-2xl bg-neutral-800 p-4"
       >
         <div className="flex w-full flex-row items-center justify-between gap-8">
-          <p className="text-2xl">Follow</p>
+          <p className="text-2xl">Follow / Listen</p>
           <button
             className="w-min font-icons text-3xl text-white"
             title="Close"
