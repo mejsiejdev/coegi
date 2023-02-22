@@ -23,13 +23,6 @@ const getNewestSong = async () => {
         }
       }
     }
-    site: _site {
-      favicon: faviconMetaTags {
-        attributes
-        content
-        tag
-      }
-    }
   }`
   const { song } = await request({ query: query })
   return song
@@ -37,11 +30,10 @@ const getNewestSong = async () => {
 
 const Page = async () => {
   const newestSong = await getNewestSong()
-  console.log(newestSong)
   return (
     <div className="flex w-full flex-col gap-4 p-4">
       <p>Latest release</p>
-      <div className="flex flex-col gap-4 lg:flex-row">
+      <div className="flex flex-col items-center justify-center gap-4 md:grid md:grid-cols-2 md:items-start lg:flex lg:flex-row">
         <Image
           src={newestSong.cover.responsiveImage.src}
           width={newestSong.cover.responsiveImage.width}
@@ -55,7 +47,7 @@ const Page = async () => {
               <p className="text-5xl">{newestSong.title}</p>
               <GenreTag genre={newestSong.genre.name} />
             </div>
-            <ReactMarkdown className="hidden flex-col gap-4 sm:flex">
+            <ReactMarkdown className="hidden flex-col gap-4 md:flex">
               {newestSong.description}
             </ReactMarkdown>
           </div>
