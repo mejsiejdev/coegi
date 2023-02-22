@@ -40,7 +40,7 @@ const Follow = ({ links, onClose }: { links: any; onClose: () => void }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ type: 'tween', duration: 0.3 }}
-      className="fixed inset-0 flex h-screen w-full items-end bg-black/50"
+      className="fixed inset-0 flex h-full w-full items-end bg-black/50"
     >
       <motion.div
         initial={{ y: 400 }}

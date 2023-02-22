@@ -2,10 +2,10 @@
 
 import Logo from '../../public/images/coegi.svg'
 import Image from 'next/image'
-import { useState } from 'react'
+import { lazy, useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import Menu from './Menu'
-import Follow from './Follow'
+const Follow = lazy(() => import('./Follow'))
 
 const Header = ({ links }: { links: any }) => {
   const [showMenu, setShowMenu] = useState<boolean>(false)
@@ -31,7 +31,9 @@ const Header = ({ links }: { links: any }) => {
       </header>
       <AnimatePresence>
         {showMenu && <Menu onClose={() => setShowMenu(false)} />}
-        {showFollow && <Follow links={links} onClose={() => setShowFollow(false)} />}
+        {showFollow && (
+          <Follow links={links} onClose={() => setShowFollow(false)} />
+        )}
       </AnimatePresence>
     </>
   )
