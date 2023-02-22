@@ -7,7 +7,7 @@ import { AnimatePresence } from 'framer-motion'
 import Menu from './Menu'
 import Follow from './Follow'
 
-const Header = () => {
+const Header = ({ links }: { links: any }) => {
   const [showMenu, setShowMenu] = useState<boolean>(false)
   const [showFollow, setShowFollow] = useState<boolean>(false)
   return (
@@ -31,7 +31,7 @@ const Header = () => {
       </header>
       <AnimatePresence>
         {showMenu && <Menu onClose={() => setShowMenu(false)} />}
-        {showFollow && <Follow onClose={() => setShowFollow(false)} />}
+        {showFollow && <Follow links={links} onClose={() => setShowFollow(false)} />}
       </AnimatePresence>
     </>
   )
