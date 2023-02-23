@@ -1,6 +1,6 @@
 import { request } from '../lib/datocms'
 import '../styles/globals.css'
-import Header from './Header'
+import Header from '../components/Header'
 import Image from 'next/image'
 import Logo from '../public/images/coegi.svg'
 
