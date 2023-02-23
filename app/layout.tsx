@@ -4,6 +4,47 @@ import Header from '../components/Header'
 import Image from 'next/image'
 import Logo from '../public/images/coegi.svg'
 
+const getMetadata = async () => {
+  const query = `query Home {
+    site: _site {
+      metadata: globalSeo {
+        titleSuffix
+        twitterAccount
+        facebookPageUrl
+        fallback: fallbackSeo {
+          description
+          twitterCard
+          title
+          image {
+            url
+          }
+        }
+      }
+    }
+  }`
+  const { site } = await request({ query: query })
+  console.log(site.metadata)
+  return site.metadata
+}
+
+export async function generateMetadata() {
+  const metadata = await getMetadata()
+  return {
+    title: {
+      default: metadata.fallback.title,
+      template: `%s${metadata.fallback.titleSuffix}`,
+    },
+    description: metadata.fallback.description,
+    twitter: {
+      card: metadata.fallback.twitterCard,
+      title: metadata.fallback.title,
+      description: metadata.fallback.description,
+      creator: metadata.twitterAccount,
+      images: [metadata.fallback.image.url]
+    }
+  }
+}
+
 const getLinks = async () => {
   const query = `query Home {
     links: artist {
@@ -15,20 +56,13 @@ const getLinks = async () => {
       youtube
       apple
     }
-    metadata: _site {
-      favicon: faviconMetaTags {
-        attributes
-        content
-        tag
-      }
-    }
   }`
   const data = await request({ query: query })
   return data
 }
 
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {
-  const { links, metadata } = await getLinks()
+  const { links } = await getLinks()
   return (
     <html
       lang="en"
