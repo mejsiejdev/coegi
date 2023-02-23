@@ -1,6 +1,8 @@
 import { request } from '../lib/datocms'
 import '../styles/globals.css'
 import Header from './Header'
+import Image from 'next/image'
+import Logo from '../public/images/coegi.svg'
 
 const getLinks = async () => {
   const query = `query Home {
@@ -34,7 +36,10 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
     >
       <body className="sm:jsutify-start flex h-full w-full flex-col-reverse items-center justify-between sm:flex-col sm:justify-start">
         <Header links={links} />
-        <div className="container">{children}</div>
+        <div className="container">
+          <Image src={Logo} alt="Coegi" className="w-48 px-4 pt-8 sm:hidden" />
+          {children}
+        </div>
       </body>
     </html>
   )
