@@ -32,7 +32,6 @@ const Page = async () => {
   const newestSong = await getNewestSong()
   return (
     <div className="flex w-full flex-col gap-4 p-4">
-      <p className="text-lg">Latest release</p>
       <div className="flex flex-col items-center justify-center gap-4 md:grid md:grid-cols-2 md:items-start lg:flex lg:flex-row">
         <Image
           src={newestSong.cover.responsiveImage.src}
