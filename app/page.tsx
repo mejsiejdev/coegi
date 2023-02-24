@@ -60,9 +60,10 @@ const Page = async () => {
             </Link>
             <Link
               href={`/songs/${newestSong.slug}`}
-              className="flex w-full flex-row items-center justify-center rounded-md border-2 border-white px-4 py-2 text-lg font-semibold"
+              className="flex w-full flex-row items-center justify-center gap-1 rounded-md border-2 border-white px-4 py-2 text-lg font-semibold"
             >
               See all songs
+              <span className="font-icons text-2xl">arrow_right_alt</span>
             </Link>
           </div>
         </div>
