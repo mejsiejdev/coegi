@@ -40,8 +40,8 @@ export async function generateMetadata() {
       title: metadata.fallback.title,
       description: metadata.fallback.description,
       creator: metadata.twitterAccount,
-      images: [metadata.fallback.image.url]
-    }
+      images: [metadata.fallback.image.url],
+    },
   }
 }
 
@@ -68,10 +68,10 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
       lang="en"
       className="flex h-full flex-col items-center bg-neutral-800 text-white antialiased"
     >
-      <body className="sm:jsutify-start flex h-full w-full flex-col-reverse items-center justify-between sm:flex-col sm:justify-start">
+      <body className="flex h-full w-full flex-col-reverse items-center justify-between sm:flex-col sm:justify-start">
         <Header links={links} />
         <div className="container flex h-full flex-col items-center justify-center sm:justify-start">
-          <Image src={Logo} alt="Coegi" className="w-48 p-4 sm:hidden" />
+          <Image src={Logo} alt="Coegi" className="w-44 px-4 pt-4 sm:hidden" />
           {children}
         </div>
       </body>

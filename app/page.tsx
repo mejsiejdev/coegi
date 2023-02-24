@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
-import GenreTag from '../components/GenreTag'
+import Tag from '../components/Tag'
 import { request } from '../lib/datocms'
 
 const getNewestSong = async () => {
@@ -31,7 +31,7 @@ const getNewestSong = async () => {
 const Page = async () => {
   const newestSong = await getNewestSong()
   return (
-    <div className="flex w-full flex-col gap-4 p-4">
+    <div className="flex w-full flex-col gap-4 px-4 pt-4 pb-0 sm:p-4">
       <div className="flex flex-col items-center justify-center gap-4 md:grid md:grid-cols-2 md:items-start lg:flex lg:flex-row">
         <Image
           src={newestSong.cover.responsiveImage.src}
@@ -45,7 +45,7 @@ const Page = async () => {
           <div className="flex flex-col gap-4">
             <div className="flex w-full flex-row justify-between gap-4">
               <p className="text-5xl">{newestSong.title}</p>
-              <GenreTag genre={newestSong.genre.name} />
+              <Tag genre={newestSong.genre.name} />
             </div>
             <ReactMarkdown className="hidden flex-col gap-4 md:flex">
               {newestSong.description}
