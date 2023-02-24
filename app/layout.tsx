@@ -71,7 +71,7 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
       <body className="flex h-full w-full flex-col-reverse items-center justify-between sm:flex-col sm:justify-start">
         <Header links={links} />
         <div className="container flex h-full flex-col items-center justify-center sm:justify-start">
-          <Image src={Logo} alt="Coegi" className="w-44 px-4 pt-4 sm:hidden" />
+          <Image src={Logo} alt="Coegi" className="w-44 p-4 sm:hidden" />
           {children}
         </div>
       </body>
