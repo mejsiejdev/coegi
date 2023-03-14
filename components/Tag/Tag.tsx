@@ -3,9 +3,11 @@ const Tag = ({ genre }: { genre: string }) => (
     className={`h-min rounded-md py-1 px-2 text-sm font-semibold ${
       genre === 'Drum & Bass'
         ? 'bg-green-700'
-        : genre === 'New'
+        : genre === 'House'
         ? 'bg-blue-700'
-        : 'bg-white'
+        : genre === 'Trance'
+        ? 'bg-violet-700'
+        : 'bg-red-700'
     }`}
   >
     {genre}
