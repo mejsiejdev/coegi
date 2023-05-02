@@ -17,7 +17,7 @@ const Drawer = ({
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ type: 'tween', duration: 0.3 }}
-      className="fixed inset-0 flex h-full w-full items-end justify-center bg-black/50 md:items-center"
+      className="fixed inset-0 z-10 flex h-full w-full items-end justify-center bg-black/50 md:items-center"
     >
       <motion.div
         initial={{ y: 400 }}

@@ -12,7 +12,7 @@ const Header = ({ links }: { links: any }) => {
   const [showMenu, setShowMenu] = useState<boolean>(false)
   return (
     <>
-      <header className="container flex w-full flex-row items-center justify-between gap-4">
+      <header className="container flex w-full flex-row items-center justify-between gap-4 pb-8">
         <Image src={Logo} alt="Coegi" className="w-28" />
         <button
           title="Open menu"
@@ -23,7 +23,7 @@ const Header = ({ links }: { links: any }) => {
         </button>
         <button
           title="Follow"
-          className="flex flex-col items-center justify-center"
+          className="hidden flex-col items-center justify-center sm:flex"
           onClick={() => setShowFollow(true)}
         >
           <span className="font-icons text-4xl">person_add</span>
