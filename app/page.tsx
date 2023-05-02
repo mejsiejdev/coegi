@@ -31,7 +31,7 @@ const getNewestSong = async () => {
 const Page = async () => {
   const newestSong = await getNewestSong()
   return (
-    <div className="flex w-full flex-col gap-4">
+    <div className="flex w-full flex-col">
       <p className="text-lg">Newest release</p>
       <div className="flex flex-col items-center justify-center gap-4 md:grid md:grid-cols-2 md:items-start lg:flex lg:flex-row">
         <Image

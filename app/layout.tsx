@@ -66,13 +66,11 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
   return (
     <html
       lang="en"
-      className="flex h-full flex-col items-center bg-neutral-800 text-white antialiased"
+      className="flex h-full flex-col items-center bg-neutral-900 text-white antialiased"
     >
-      <body className="flex h-full w-full flex-col items-center justify-start">
+      <body className="container flex h-full w-full flex-col items-center justify-start gap-8 px-4 py-8 sm:px-6 lg:px-8">
         <Header links={links} />
-        <div className="container flex h-full flex-col items-center justify-start p-4">
-          {children}
-        </div>
+        {children}
       </body>
     </html>
   )

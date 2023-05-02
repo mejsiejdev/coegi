@@ -12,7 +12,8 @@ const Header = ({ links }: { links: any }) => {
   const [showMenu, setShowMenu] = useState<boolean>(false)
   return (
     <>
-      <header className="container flex w-full flex-row items-center justify-between gap-4 p-4">
+      <header className="container flex w-full flex-row items-center justify-between gap-4">
+        <Image src={Logo} alt="Coegi" className="w-28" />
         <button
           title="Open menu"
           className="flex flex-col items-center justify-center"
@@ -20,7 +21,6 @@ const Header = ({ links }: { links: any }) => {
         >
           <span className="font-icons text-4xl">menu</span>
         </button>
-        <Image src={Logo} alt="Coegi" className="w-28" />
         <button
           title="Follow"
           className="flex flex-col items-center justify-center"
