@@ -1,18 +1,16 @@
-'use client'
-
 import Image, { StaticImageData } from 'next/image'
 import Drawer from '../../../../../components/Drawer'
+import { request } from '../../../../../lib/datocms'
 
 // Icon imports
-import Spotify from '../../../public/images/spotify.svg'
-import Soundcloud from '../../../public/images/soundcloud.png'
-import Apple from '../../../public/images/applemusic.svg'
-import Tidal from '../../../public/images/tidal.png'
-import Youtube from '../../../public/images/youtube.png'
-import Download from '../../../public/images/download.svg'
-import Radio from '../../../public/images/radio.svg'
-import Extended from '../../../public/images/headphones.svg'
-import { useRouter } from 'next/navigation'
+import Spotify from '../../../../../public/images/spotify.svg'
+import Soundcloud from '../../../../../public/images/soundcloud.png'
+import Apple from '../../../../../public/images/applemusic.svg'
+import Tidal from '../../../../../public/images/tidal.png'
+import Youtube from '../../../../../public/images/youtube.png'
+import Download from '../../../../../public/images/download.svg'
+import Radio from '../../../../../public/images/radio.svg'
+import Extended from '../../../../../public/images/headphones.svg'
 
 const PlatformLink = ({
   href,
@@ -38,11 +36,24 @@ const PlatformLink = ({
   </a>
 )
 
-const Listen = () => {
+const getLinks = async (slug: string) => {
+  const query = `query ($slug: SlugFilter) {
+    song(filter: {slug: $slug}) {
+      links
+    }
+  }`
+  const { song } = await request({
+    query: query,
+    variables: { slug: { eq: slug } },
+  })
+  return song.links
+}
+
+const Listen = async ({ params }: { params: { slug: string } }) => {
+  const links = await getLinks(params.slug)
   return (
     <Drawer title="Listen">
       <div className="flex flex-col gap-2">
-        {/*
         {links.spotify && (
           <PlatformLink
             href={links.spotify}
@@ -104,7 +115,7 @@ const Listen = () => {
               />
             )}
           </>
-            )}*/}
+        )}
       </div>
     </Drawer>
   )
