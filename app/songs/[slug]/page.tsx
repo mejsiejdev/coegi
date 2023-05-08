@@ -69,7 +69,7 @@ const Song = async ({ params }: { params: { slug: string } }) => {
           width={song.cover.width}
           placeholder="blur"
           blurDataURL={song.cover.blurUpThumb}
-          className="rounded-md shadow-lg"
+          className="max-w-[30rem] rounded-md shadow-lg"
         />
         {/* Song info container */}
         <div className="flex w-full flex-col justify-between gap-4">

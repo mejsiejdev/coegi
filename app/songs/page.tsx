@@ -46,12 +46,12 @@ const getMusic = async (): Promise<
 const Music = async () => {
   const songs = await getMusic()
   return (
-    <div className="flex h-full w-full flex-col gap-4">
+    <div className="grid w-full grid-cols-1 gap-4 pb-8 sm:grid-cols-2">
       {songs.map((song, key) => (
         <Link
           href={`/songs/${song.slug}`}
           key={key}
-          className="flex w-full flex-row gap-4"
+          className="flex w-full flex-row gap-4 rounded-md transition hover:bg-neutral-800 sm:p-4"
         >
           <Image
             src={song.cover.url}
@@ -60,9 +60,9 @@ const Music = async () => {
             width={song.cover.width}
             placeholder="blur"
             blurDataURL={song.cover.blurUpThumb}
-            className="max-h-[8rem] max-w-[8rem] rounded-md"
+            className="max-h-[8rem] max-w-[8rem] rounded-md sm:max-h-[12rem] sm:max-w-[12rem]"
           />
-          <div className="flex w-full flex-col justify-center">
+          <div className="flex w-full flex-col justify-center sm:justify-start">
             <p className="text-2xl font-semibold">{song.title}</p>
             <p className="text-neutral-300">
               {song.author ? song.author : 'Original'}
