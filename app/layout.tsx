@@ -21,7 +21,7 @@ const getMetadata = async () => {
     }
   }`
   const { site } = await request({ query: query })
-  console.log(site.metadata)
+  // console.log(site.metadata)
   return site.metadata
 }
 
