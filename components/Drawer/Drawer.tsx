@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useRouter } from 'next/navigation'
 
 const Drawer = ({
   title,
@@ -9,8 +10,9 @@ const Drawer = ({
 }: {
   title: string
   children: React.ReactNode
-  onClose: () => void
+  onClose?: () => void
 }) => {
+  const router = useRouter()
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -31,7 +33,7 @@ const Drawer = ({
           <button
             className="w-min font-icons text-3xl text-white"
             title="Close"
-            onClick={onClose}
+            onClick={onClose ? onClose : () => router.back()}
           >
             close
           </button>

@@ -60,7 +60,7 @@ const getSong = async (
 const Song = async ({ params }: { params: { slug: string } }) => {
   const song = await getSong(params.slug)
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex w-full flex-col gap-4">
       {/* A side-by-side container for the song image and it's info */}
       <div className="flex w-full flex-row flex-wrap gap-4 pb-20 sm:gap-8">
         <Image
@@ -112,8 +112,14 @@ const Song = async ({ params }: { params: { slug: string } }) => {
             )}
           </div>
           {/* Listen button */}
-          <div className="fixed bottom-0 left-0 flex w-full justify-center bg-gradient-to-b from-transparent via-neutral-900  to-neutral-900 pt-4">
-            <Listen links={song.links} />
+          <div className="fixed bottom-0 left-0 flex w-full justify-center bg-gradient-to-b from-transparent via-neutral-900 to-neutral-900 pt-4">
+            <div className="container w-full p-4 sm:px-6 lg:px-8">
+              <Link href={`/songs/${params.slug}/listen`}>
+                <div className="w-full rounded-md bg-white px-4 py-2 text-center text-lg font-bold text-neutral-900">
+                  Listen
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
