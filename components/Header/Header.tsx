@@ -20,12 +20,12 @@ const Header = ({ links }: { links: any }) => {
         </Link>
         <div className="hidden flex-row gap-4 sm:flex">
           <Link href="/songs">
-            <Button slim secondary>
+            <Button slim type="tertiary">
               Songs
             </Button>
           </Link>
           <Link href="/about">
-            <Button slim secondary>
+            <Button slim type="tertiary">
               About
             </Button>
           </Link>
