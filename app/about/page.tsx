@@ -1,7 +1,7 @@
 const Music = () => {
   return (
-    <div>
-      <p>Achievements page in progress.</p>
+    <div className="flex h-full w-full flex-col items-center justify-center">
+      <p className="text-2xl">About page in progress.</p>
     </div>
   )
 }
