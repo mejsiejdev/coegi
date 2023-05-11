@@ -18,6 +18,7 @@ const Header = ({ links }: { links: any }) => {
         <Link href="/">
           <Image src={Logo} alt="Coegi" className="w-28" />
         </Link>
+        {/* Desktop links */}
         <div className="hidden flex-row gap-4 sm:flex">
           <Link href="/songs">
             <Button slim type="tertiary">
@@ -33,13 +34,7 @@ const Header = ({ links }: { links: any }) => {
             Follow
           </Button>
         </div>
-        <button
-          title="Open menu"
-          className="flex flex-col items-center justify-center sm:hidden"
-          onClick={() => setShowMenu(true)}
-        >
-          <span className="font-icons text-4xl">menu</span>
-        </button>
+        {/* Mobile icons */}
         <button
           title="Follow"
           className="flex flex-col items-center justify-center sm:hidden"

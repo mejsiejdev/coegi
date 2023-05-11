@@ -41,20 +41,10 @@ const Page = async () => {
   const newestSongs = await getNewestSongs()
   return (
     <Animate>
-      <div className="flex w-full flex-col gap-24">
+      <div className="flex w-full flex-col gap-8">
         <div className="flex flex-col items-center">
           <p className="text-4xl font-bold">Newest releases</p>
           {newestSongs && <Gallery songs={newestSongs} />}
-        </div>
-        <div className="flex flex-col items-center">
-          <Link href="/songs">
-            <Button type="secondary">
-              <div className="flex flex-row items-center gap-2">
-                <p>See all songs</p>
-                <span className="pt-0.5 font-icons text-2xl">east</span>
-              </div>
-            </Button>
-          </Link>
         </div>
       </div>
     </Animate>
