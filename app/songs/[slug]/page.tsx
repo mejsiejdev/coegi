@@ -76,12 +76,12 @@ const Song = async ({ params }: { params: { slug: string } }) => {
           {/* Song info container */}
           <div className="flex w-full flex-col justify-between gap-4">
             <div className="flex w-full flex-col gap-2">
-              <p className="text-4xl font-semibold">{song.title}</p>
+              <h1 className="text-4xl font-semibold">{song.title}</h1>
               <p className="text-neutral-400">
                 {song.author ? song.author : 'Original'}
               </p>
               {song.description && (
-                <ReactMarkdown className="text-neutral-300">
+                <ReactMarkdown className="prose pt-2 text-neutral-300 prose-headings:mb-2 prose-h2:text-white prose-p:mb-2 prose-p:mt-0 prose-a:font-semibold prose-a:text-white">
                   {song.description}
                 </ReactMarkdown>
               )}
