@@ -3,25 +3,29 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Space Mono';
-  src: url('../public/fonts/SpaceMono-Regular.ttf');
+  font-family: 'Hanken Grotesk';
+  src: url('../public/fonts/HankenGrotesk-VariableFont_wght.ttf');
 }
 
 @font-face {
-  font-family: 'Space Mono';
-  src: url('../public/fonts/SpaceMono-Italic.ttf');
+  font-family: 'Hanken Grotesk';
+  src: url('../public/fonts/HankenGrotesk-Italic-VariableFont_wght.ttf');
   font-style: italic;
 }
 
 @font-face {
-  font-family: 'Space Mono';
-  src: url('../public/fonts/SpaceMono-Bold.ttf');
-  font-weight: 700;
+  font-family: 'Material Icons';
+  src: url('../public/fonts/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].woff2');
 }
 
-@font-face {
-  font-family: 'Space Mono';
-  src: url('../public/fonts/SpaceMono-BoldItalic.ttf');
-  font-weight: 700;
-  font-style: italic;
+.font-icons {
+  font-weight: 300;
+  font-style: normal;
+  line-height: 0;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  font-variation-settings: 'FILL' 1;
 }
