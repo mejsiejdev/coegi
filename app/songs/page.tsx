@@ -1,6 +1,5 @@
 import { request } from '../../lib/datocms'
 import Image from 'next/image'
-import Tag from '../../components/Tag'
 import Link from 'next/link'
 import Animate from '../../components/Animate'
 
@@ -53,7 +52,7 @@ const Music = async () => {
           <Link
             href={`/songs/${song.slug}`}
             key={key}
-            className="flex w-full flex-row gap-4 rounded-md transition hover:bg-neutral-800 sm:p-4"
+            className="flex w-full flex-row items-start gap-4 rounded-md text-left transition hover:bg-neutral-800 sm:flex-col sm:items-center sm:p-4 sm:text-center lg:flex-row lg:items-start lg:text-left"
           >
             <Image
               src={song.cover.url}

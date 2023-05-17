@@ -63,7 +63,7 @@ const Song = async ({ params }: { params: { slug: string } }) => {
     <Animate>
       <div className="flex w-full flex-col gap-4">
         {/* A side-by-side container for the song image and it's info */}
-        <div className="flex w-full flex-col gap-4 pb-20 sm:flex-row sm:gap-8">
+        <div className="flex w-full flex-col items-center gap-4 pb-20 sm:gap-8 lg:flex-row lg:items-start">
           <Image
             src={song.cover.url}
             alt={song.cover.alt}
@@ -71,7 +71,7 @@ const Song = async ({ params }: { params: { slug: string } }) => {
             width={song.cover.width}
             placeholder="blur"
             blurDataURL={song.cover.blurUpThumb}
-            className="max-w-[30rem] rounded-md shadow-lg"
+            className="h-full w-full rounded-md shadow-lg lg:max-w-[30rem]"
           />
           {/* Song info container */}
           <div className="flex w-full flex-col justify-between gap-4">
