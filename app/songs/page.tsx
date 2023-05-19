@@ -46,7 +46,18 @@ const getMusic = async (): Promise<
 const Music = async () => {
   const songs = await getMusic()
   return (
-    <Animate>
+    <Animate className="flex flex-col gap-4">
+      <div className="flex flex-row items-center gap-2">
+        <Link
+          href="/"
+          className="flex h-full items-center rounded-md p-1 transition hover:bg-neutral-600"
+        >
+          <span className="font-icons text-2xl font-semibold">
+            arrow_back_ios_new
+          </span>
+        </Link>
+        <p className="text-2xl font-semibold">All songs</p>
+      </div>
       <div className="grid w-full grid-cols-1 gap-4 pb-8 sm:grid-cols-2">
         {songs.map((song, key) => (
           <Link
