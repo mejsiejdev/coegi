@@ -50,7 +50,7 @@ const Music = async () => {
       <div className="flex flex-row items-center gap-2">
         <Link
           href="/"
-          className="flex h-full items-center rounded-md p-1 transition hover:bg-neutral-600"
+          className="flex h-full items-center rounded-md transition sm:p-1 sm:hover:bg-neutral-600"
         >
           <span className="font-icons text-2xl font-semibold">
             arrow_back_ios_new
