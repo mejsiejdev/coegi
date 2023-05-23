@@ -1,12 +1,14 @@
 const Button = ({
   children,
   onClick,
+  highlight,
   slim,
   type,
 }: {
   children: React.ReactNode
   onClick?: () => void
   slim?: boolean
+  highlight?: boolean
   type?: 'primary' | 'secondary' | 'tertiary'
 }) => (
   <>
@@ -27,7 +29,11 @@ const Button = ({
       <div
         className={`rounded-md ${
           type === 'tertiary'
-            ? 'bg-transparent text-neutral-300 hover:bg-neutral-800'
+            ? `text-neutral-300 ${
+                highlight
+                  ? 'bg-neutral-700'
+                  : `bg-transparent hover:bg-neutral-800`
+              }`
             : type === 'secondary'
             ? 'border-2 border-white text-white'
             : 'bg-white text-neutral-900'

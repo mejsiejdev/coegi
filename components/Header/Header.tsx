@@ -6,10 +6,12 @@ import { lazy, useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import Button from '../Button'
+import { usePathname } from 'next/navigation'
 const Follow = lazy(() => import('./Follow'))
 const Menu = lazy(() => import('./Menu'))
 
 const Header = ({ links }: { links: any }) => {
+  const pathname = usePathname()
   const [showFollow, setShowFollow] = useState<boolean>(false)
   const [showMenu, setShowMenu] = useState<boolean>(false)
   return (
@@ -21,12 +23,12 @@ const Header = ({ links }: { links: any }) => {
         {/* Desktop links */}
         <div className="hidden flex-row gap-4 sm:flex">
           <Link href="/songs">
-            <Button slim type="tertiary">
+            <Button slim type="tertiary" highlight={pathname.includes('songs')}>
               Songs
             </Button>
           </Link>
           <Link href="/about">
-            <Button slim type="tertiary">
+            <Button slim type="tertiary" highlight={pathname.includes('about')}>
               About
             </Button>
           </Link>
