@@ -63,7 +63,7 @@ const Music = async () => {
           <Link
             href={`/songs/${song.slug}`}
             key={key}
-            className="flex w-full flex-row items-start gap-4 rounded-md text-left transition hover:bg-neutral-800 sm:flex-col sm:items-center sm:p-4 sm:text-center lg:flex-row lg:items-start lg:text-left"
+            className="flex w-full flex-row items-start gap-4 rounded-md text-left transition sm:flex-col sm:items-center sm:p-4 sm:text-center sm:hover:bg-neutral-800 lg:flex-row lg:items-start lg:text-left"
           >
             <Image
               src={song.cover.url}
