@@ -2,6 +2,7 @@ import { request } from '../../lib/datocms'
 import Image from 'next/image'
 import Link from 'next/link'
 import Animate from '../../components/Animate'
+import { Metadata } from 'next'
 
 const getMusic = async (): Promise<
   {
@@ -41,6 +42,10 @@ const getMusic = async (): Promise<
   }`
   const { songs } = await request({ query: query })
   return songs
+}
+
+export const metadata: Metadata = {
+  title: "Songs"
 }
 
 const Music = async () => {

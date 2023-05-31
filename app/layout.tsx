@@ -27,15 +27,16 @@ const getMetadata = async () => {
 
 export async function generateMetadata() {
   const metadata = await getMetadata()
+  console.log(metadata)
   return {
     title: {
-      default: metadata.fallback.title,
+      default: metadata.fallback.title === "Home" ? "Coegi" : metadata.fallback.title,
       template: `%s${metadata.fallback.titleSuffix}`,
     },
     description: metadata.fallback.description,
     twitter: {
       card: metadata.fallback.twitterCard,
-      title: metadata.fallback.title,
+      title: metadata.fallback.title === "Home" ? "Coegi" : metadata.fallback.title,
       description: metadata.fallback.description,
       creator: metadata.twitterAccount,
       images: [metadata.fallback.image.url],

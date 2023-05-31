@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 import Animate from '../../../components/Animate'
+import { Metadata } from 'next'
 
 const getSong = async (
   slug: string
@@ -57,6 +58,19 @@ const getSong = async (
   const { song } = await request({ query: query })
   return song
 }
+
+export async function generateMetadata({params}: {params: {slug: string}}): Promise<Metadata> {
+  const query = `{
+    song(filter: {slug: {eq: "${params.slug}"}}) {
+      title
+    }
+  }`
+  const { song } = await request({ query: query })
+  return {
+    title: song.title
+  }
+}
+
 const Song = async ({ params }: { params: { slug: string } }) => {
   const song = await getSong(params.slug)
   return (
