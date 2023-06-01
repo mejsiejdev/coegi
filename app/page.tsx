@@ -1,7 +1,4 @@
-import Image from 'next/image'
-import Link from 'next/link'
 import Animate from '../components/Animate'
-import Button from '../components/Button'
 import { request } from '../lib/datocms'
 import Gallery from './Gallery'
 
@@ -42,10 +39,7 @@ const Page = async () => {
   return (
     <Animate>
       <div className="flex w-full flex-col gap-8">
-        <div className="flex flex-col items-center">
-          <p className="text-4xl font-bold">Newest releases</p>
-          {newestSongs && <Gallery songs={newestSongs} />}
-        </div>
+        {newestSongs ? <Gallery songs={newestSongs} /> : <p className="text-4xl text-white">Loading...</p>}
       </div>
     </Animate>
   )

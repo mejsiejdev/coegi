@@ -16,9 +16,9 @@ const Header = ({ links }: { links: any }) => {
   const [showMenu, setShowMenu] = useState<boolean>(false)
   return (
     <>
-      <header className="container flex w-full flex-row items-center justify-between gap-4 pb-8">
+      <header className="container flex w-full flex-row items-center justify-between gap-4 pb-8 select-none">
         <Link href="/">
-          <Image src={Logo} alt="Coegi" className="w-28" />
+          <Image src={Logo} alt="Coegi" className="w-28" priority />
         </Link>
         {/* Desktop links */}
         <div className="hidden flex-row gap-4 sm:flex">

@@ -34,7 +34,7 @@ const Gallery = ({
   return (
     <div className="flex flex-col gap-4 sm:gap-8">
       <div className="flex h-full w-full flex-row items-center justify-center gap-4 pt-8">
-        <div className="absolute flex w-[250%] flex-row justify-center gap-4 overflow-hidden sm:w-[120%]">
+        <div className="absolute flex w-[250%] flex-row justify-center gap-4 overflow-hidden md:w-[120%]">
           {[
             ...background.slice(3, 5),
             background[2],
@@ -83,7 +83,7 @@ const Gallery = ({
         </div>
         <div className="z-10 flex flex-row items-center gap-4 sm:gap-8">
           <button
-            className="font-icons text-4xl sm:text-5xl"
+            className="font-icons text-4xl sm:text-5xl select-none"
             onClick={() =>
               setIndex(index - 1 === -1 ? songs.length - 1 : index - 1)
             }
@@ -102,11 +102,11 @@ const Gallery = ({
               blurDataURL={songs[index].cover.blurUpThumb}
               placeholder="blur"
               loading="eager"
-              className="rounded-md sm:max-h-[500px] sm:max-w-[500px]"
+              className="rounded-md sm:max-h-[500px] sm:max-w-[500px] select-none"
             />
           </Link>
           <button
-            className="font-icons text-4xl sm:text-5xl"
+            className="font-icons text-4xl sm:text-5xl select-none"
             onClick={() => setIndex((current) => (current + 1) % songs.length)}
           >
             arrow_forward_ios
@@ -116,7 +116,7 @@ const Gallery = ({
       <p className="select-none text-center text-4xl font-semibold sm:text-5xl">
         {songs[index].title}
       </p>
-      <Link href="/songs" className="flex justify-center pt-4">
+      <Link href="/songs" className="flex justify-center">
         <Button type="secondary">
           <div className="flex flex-row items-center gap-2">
             <p>See all songs</p>

@@ -72,7 +72,7 @@ const Music = async () => {
           >
             <Image
               src={song.cover.url}
-              alt={song.cover.alt}
+              alt={`${song.author ? song.author : "Coegi"} - ${song.title}`}
               height={song.cover.height}
               width={song.cover.width}
               placeholder="blur"
