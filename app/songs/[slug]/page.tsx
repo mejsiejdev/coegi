@@ -4,6 +4,7 @@ import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 import Animate from '../../../components/Animate'
 import { Metadata } from 'next'
+import Progress from './Progress'
 
 const getSong = async (
   slug: string
@@ -92,7 +93,7 @@ const Song = async ({ params }: { params: { slug: string } }) => {
   return (
     <Animate>
       {/* A side-by-side container for the song image and it's info */}
-      <div className="flex w-full flex-col items-center gap-4 pb-20 sm:gap-8 lg:flex-row lg:items-start">
+      <div className="flex w-full flex-col items-center gap-4 pb-24 sm:gap-8 sm:pb-0 lg:flex-row lg:items-start">
         <Image
           src={song.cover.url}
           alt={song.cover.alt}
@@ -143,8 +144,8 @@ const Song = async ({ params }: { params: { slug: string } }) => {
               )}
             </div>
           </div>
-          {/* Listen button */}
-          <div className="fixed bottom-0 left-0 flex w-full justify-center bg-gradient-to-b from-transparent via-neutral-900 to-neutral-900 pt-4 sm:static sm:pt-0">
+          {/* Listen button + progress bar */}
+          <div className="fixed bottom-0 left-0 flex w-full flex-col justify-center bg-gradient-to-b from-transparent via-neutral-900 to-neutral-900 pt-4 sm:static sm:pt-0">
             <div className="container w-full p-4 sm:p-0">
               <Link href={`/songs/${params.slug}/listen`}>
                 <div className="w-full rounded-md bg-white px-4 py-2 text-center text-lg font-bold text-neutral-900">
@@ -152,6 +153,7 @@ const Song = async ({ params }: { params: { slug: string } }) => {
                 </div>
               </Link>
             </div>
+            <Progress />
           </div>
         </div>
       </div>
