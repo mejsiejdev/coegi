@@ -7,12 +7,9 @@ const Progress = () => {
   const [width, setWidth] = useState(0)
 
   const scrollHeight = () => {
-    const el = document.documentElement,
-      ScrollTop = el.scrollTop || document.body.scrollTop,
-      ScrollHeight = el.scrollHeight || document.body.scrollHeight
-    const percent = (ScrollTop / (ScrollHeight - el.clientHeight)) * 100
-    // store percentage in state
-    setWidth(percent)
+    const currentProgress = window.scrollY
+    const scrollHeight = document.body.scrollHeight - window.innerHeight
+    setWidth((currentProgress / scrollHeight) * 100)
   }
 
   useEffect(() => {
