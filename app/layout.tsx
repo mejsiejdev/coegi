@@ -30,13 +30,15 @@ export async function generateMetadata() {
   console.log(metadata)
   return {
     title: {
-      default: metadata.fallback.title === "Home" ? "Coegi" : metadata.fallback.title,
-      template: `%s${metadata.fallback.titleSuffix}`,
+      default:
+        metadata.fallback.title === 'Home' ? 'Coegi' : metadata.fallback.title,
+      template: `%s | Coegi`,
     },
     description: metadata.fallback.description,
     twitter: {
       card: metadata.fallback.twitterCard,
-      title: metadata.fallback.title === "Home" ? "Coegi" : metadata.fallback.title,
+      title:
+        metadata.fallback.title === 'Home' ? 'Coegi' : metadata.fallback.title,
       description: metadata.fallback.description,
       creator: metadata.twitterAccount,
       images: [metadata.fallback.image.url],
