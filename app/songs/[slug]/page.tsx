@@ -59,15 +59,31 @@ const getSong = async (
   return song
 }
 
-export async function generateMetadata({params}: {params: {slug: string}}): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string }
+}): Promise<Metadata> {
   const query = `{
     song(filter: {slug: {eq: "${params.slug}"}}) {
       title
+      description
+      cover {
+        url
+      }
     }
   }`
   const { song } = await request({ query: query })
   return {
-    title: song.title
+    title: song.title,
+    description: song.description,
+    openGraph: {
+      images: [
+        {
+          url: song.cover.url,
+        },
+      ],
+    },
   }
 }
 
