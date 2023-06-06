@@ -16,7 +16,7 @@ const Header = ({ links }: { links: any }) => {
   const [showMenu, setShowMenu] = useState<boolean>(false)
   return (
     <>
-      <header className="container flex w-full flex-row items-center justify-between gap-4 pb-8 select-none">
+      <header className="container flex w-full select-none flex-row items-center justify-between gap-4 pb-8">
         <Link href="/">
           <Image src={Logo} alt="Coegi" className="w-28" priority />
         </Link>
@@ -27,11 +27,15 @@ const Header = ({ links }: { links: any }) => {
               Songs
             </Button>
           </Link>
-          <Link href="/about">
-            <Button slim type="tertiary" highlight={pathname.includes('about')}>
-              About
+          <a
+            target={'_blank'}
+            rel={'noreferrer'}
+            href="https://coegimusic.gumroad.com/"
+          >
+            <Button slim type="tertiary">
+              FLPs
             </Button>
-          </Link>
+          </a>
           <Button slim onClick={() => setShowFollow(true)}>
             Follow
           </Button>
