@@ -79,6 +79,8 @@ export async function generateMetadata({
     title: song.title,
     description: song.description,
     openGraph: {
+      title: song.title,
+      siteName: 'Coegi',
       images: [
         {
           url: song.cover.url,
