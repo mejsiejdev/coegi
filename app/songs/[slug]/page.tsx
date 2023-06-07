@@ -158,7 +158,7 @@ const Song = async ({ params }: { params: { slug: string } }) => {
           <div className="fixed bottom-0 left-0 flex w-full flex-col justify-center bg-gradient-to-b from-transparent via-neutral-900 to-neutral-900 pt-4 sm:static sm:pt-0">
             <div className="container w-full p-4 sm:p-0">
               <Link href={`/songs/${params.slug}/listen`}>
-                <div className="w-full rounded-md bg-white px-4 py-2 text-center text-lg font-bold text-neutral-900">
+                <div className="w-full rounded-md bg-blue-500 px-4 py-2 text-center text-lg font-bold text-white">
                   Listen
                 </div>
               </Link>
