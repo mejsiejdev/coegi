@@ -87,6 +87,12 @@ export async function generateMetadata({
         },
       ],
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: song.title,
+      creator: '@coegimusic',
+      images: [song.cover.url],
+    },
   }
 }
 
