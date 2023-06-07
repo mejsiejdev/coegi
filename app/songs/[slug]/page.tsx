@@ -68,18 +68,20 @@ export async function generateMetadata({
   const query = `{
     song(filter: {slug: {eq: "${params.slug}"}}) {
       title
-      description
+      shortDescription
       cover {
         url
       }
     }
   }`
   const { song } = await request({ query: query })
+  console.log(song.title)
   return {
     title: song.title,
-    description: song.description,
+    description: song.shortDescription,
     openGraph: {
       title: song.title,
+      description: song.shortDescription,
       siteName: 'Coegi',
       images: [
         {
