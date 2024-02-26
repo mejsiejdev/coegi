@@ -30,6 +30,15 @@ const Header = ({ links }: { links: any }) => {
           <a
             target={'_blank'}
             rel={'noreferrer'}
+            href="https://edmwarriors.com/coegimusic"
+          >
+            <Button slim type="tertiary">
+              Ghost Production
+            </Button>
+          </a>
+          <a
+            target={'_blank'}
+            rel={'noreferrer'}
             href="https://coegimusic.gumroad.com/"
           >
             <Button slim type="tertiary">

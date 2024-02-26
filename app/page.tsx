@@ -17,7 +17,7 @@ const getNewestSongs = async (): Promise<
   }[]
 > => {
   const query = `{
-    songs: allSongs(first: "6", orderBy: uploadedAt_DESC) {
+    songs: allSongs(first: "6", orderBy: uploadedAt_DESC, filter: {hidden: { eq: false }}) {
       slug
       title
       cover {
