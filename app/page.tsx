@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import Animate from '../components/Animate'
 import { request } from '../lib/datocms'
 import Gallery from './Gallery'
@@ -39,7 +40,9 @@ const Page = async () => {
   return (
     <Animate>
       <div className="flex w-full flex-col gap-8">
-        {newestSongs ? <Gallery songs={newestSongs} /> : <p className="text-4xl text-white">Loading...</p>}
+        <Suspense fallback={<p className="text-4xl text-white">Loading...</p>}>
+          <Gallery songs={newestSongs} /> 
+        </Suspense>
       </div>
     </Animate>
   )
