@@ -34,7 +34,7 @@ const Gallery = ({
   return (
     <div className="flex flex-col gap-4 sm:gap-8">
       <div className="flex h-full w-full flex-row items-center justify-center gap-4 pt-8">
-        <div className="absolute flex w-[250%] flex-row justify-center gap-4 overflow-hidden md:w-[120%]">
+        <div className="absolute flex w-[250%] flex-row justify-center gap-8 overflow-hidden md:w-[120%]">
           {[
             ...background.slice(3, 5),
             background[2],
@@ -48,9 +48,8 @@ const Gallery = ({
                   (previousIndex.current === 5 && index !== 4)
                     ? 300
                     : -300,
-                opacity: 0,
               }}
-              animate={{ x: 0, opacity: 1 }}
+              animate={{ x: 0 }}
               exit={{
                 x:
                   (previousIndex.current < index &&
@@ -58,7 +57,6 @@ const Gallery = ({
                   (previousIndex.current === 5 && index !== 4)
                     ? 300
                     : -300,
-                opacity: 0,
               }}
               transition={{ type: 'keyframes' }}
               key={song.title + index}
@@ -79,11 +77,11 @@ const Gallery = ({
               </Link>
             </motion.div>
           ))}
-          <span className="absolute h-full w-full bg-gradient-to-r from-transparent via-black to-transparent" />
+          <span className="absolute h-full w-[50%] bg-gradient-to-r from-transparent via-black to-transparent" />
         </div>
         <div className="z-10 flex flex-row items-center gap-4 sm:gap-8">
           <button
-            className="font-icons text-4xl sm:text-5xl select-none"
+            className="select-none font-icons text-4xl sm:text-5xl"
             onClick={() =>
               setIndex(index - 1 === -1 ? songs.length - 1 : index - 1)
             }
@@ -102,11 +100,11 @@ const Gallery = ({
               blurDataURL={songs[index].cover.blurUpThumb}
               placeholder="blur"
               loading="eager"
-              className="rounded-md sm:max-h-[500px] sm:max-w-[500px] select-none"
+              className="select-none rounded-md sm:max-h-[500px] sm:max-w-[500px]"
             />
           </Link>
           <button
-            className="font-icons text-4xl sm:text-5xl select-none"
+            className="select-none font-icons text-4xl sm:text-5xl"
             onClick={() => setIndex((current) => (current + 1) % songs.length)}
           >
             arrow_forward_ios
