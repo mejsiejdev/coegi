@@ -22,7 +22,7 @@ const getMusic = async (): Promise<
   }[]
 > => {
   const query = `{
-    songs: allSongs(orderBy: uploadedAt_DESC) {
+    songs: allSongs(orderBy: uploadedAt_DESC, filter: {hidden: { eq: false }}) {
       slug
       title
       author
